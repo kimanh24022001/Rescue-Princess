@@ -62,14 +62,14 @@ public class game implements  KeyListener{
 	ImageIcon game_4= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\zombie_1.png");
 	ImageIcon game_41= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\zombie_2.png");
 	ImageIcon game_42= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\zombie_3.png");
-    ImageIcon game_43= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\zombie_4.png");		
+        ImageIcon game_43= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\zombie_4.png");		
 	ImageIcon game_7= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_1.jpg.png");
 	ImageIcon game_5= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\crow_1.jpg.png");
 	ImageIcon game_6= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\crow_2.jpg.png");
 	ImageIcon game_8= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_2.jpg.png");
 	ImageIcon game_9= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_3.jpg.png");
 	ImageIcon game_10= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_4.jpg.png");
-ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_5.jpg.png");
+        ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_5.jpg.png");
 	ImageIcon game_12= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\cloud_6.jpg.png");
 	ImageIcon game_131= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\ground_1.png");
 	ImageIcon game_132= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Princess\\src\\ground_2.png");
@@ -94,7 +94,6 @@ ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Pri
 		coin_bar.setText("0 ");
 		coin_bar.setFont(new Font("Ink Free",Font.BOLD,20));
 		coin_bar.setForeground(Color.white);
-	//	coin_bar.setBackground(Color.gray);
 		coin_1.setBounds(0,30,300,300);
 		coin_1.setIcon(game_14);
 		
@@ -162,7 +161,7 @@ ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Pri
 		}
 		for(int i=0;i<3;i++) {
 	    	coin_3[i]=new JLabel();
-            coin_3[i].setBounds(-2300-i*30,160,300,300);
+                coin_3[i].setBounds(-2300-i*30,160,300,300);
 	    	coin_3[i].setIcon(game_14);
 	    	flag_3[i]=1;
 		}
@@ -176,13 +175,10 @@ ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Pri
 			coin_6[i]=new JLabel();
 		}
 		for(int i=0;i<x;i++) {
-	   // 	coin_6[i]=new JLabel();
 	    	coin_6[i].setBounds(600-i*30,200,300,300);
 	    	coin_6[i].setIcon(game_14);
 	    	flag_6[i]=1;
 		}
-
-//		timer.start();	
 		timer_3.start();
 		timer_4.start();
 
@@ -220,85 +216,71 @@ ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Pri
 		}
 		frame.setVisible(true);
 		frame.addKeyListener(this);
-	}
-	void check_collision() {
-		if ((prince.getX()==billgate.getX() && Math.abs( prince.getY()-billgate.getY())<=20) || (prince.getX()==(crow.getX()-10) && Math.abs(prince.getY()-crow.getY())<=50 )) {
+	        }
+	        void check_collision() {
+		   if ((prince.getX()==billgate.getX() && Math.abs( prince.getY()-billgate.getY())<=20) || (prince.getX()==(crow.getX()-10) && Math.abs(prince.getY()-crow.getY())<=50 )) {
 			live--;
-		}
-		if (live<=0) {
+		   }
+		   if (live<=0) {
 			timer_6.start();
 			GameOver();
-		}
-		if (Math.abs(prince.getX()-heart.getX())<=10 && Math.abs(prince.getY()-heart.getY())<=10 ) {
-		    if (flag_heart==1) {
-		     	live++;}
-		    flag_heart=0;
-		    background.remove(heart);
-		}
-		if (prince.getX()==(diamond.getX()-10) && Math.abs(prince.getY()-diamond.getY())<=10 ) {
+		    }
+		   if (Math.abs(prince.getX()-heart.getX())<=10 && Math.abs(prince.getY()-heart.getY())<=10 ) {
+		        if (flag_heart==1) {
+		         	live++;}
+		        flag_heart=0;
+		       background.remove(heart);
+		    }
+		   if (prince.getX()==(diamond.getX()-10) && Math.abs(prince.getY()-diamond.getY())<=10 ) {
 			if (flag_diamond==1) {
 				live=live+2;
 			}
 			flag_diamond=0;
 		    background.remove(diamond);
-		}
-		for(int i=0;i<2;i++) {
+		   }
+		   for(int i=0;i<2;i++) {
 			if ( Math.abs(prince.getX()-coin_2[i].getX())<=10 && Math.abs( prince.getY()-coin_2[i].getY())<=50) {
 				if (flag_2[i]==1) {
 				   score=1+score;}
 				background.remove(coin_2[i]);
 				flag_2[i]=0;
 			}
-		}
-		for(int i=0;i<3;i++) {
+		   }
+		   for(int i=0;i<3;i++) {
 			if ( Math.abs(prince.getX()-coin_3[i].getX())<=10 && Math.abs( prince.getY()-coin_3[i].getY())<=50) {
 				if (flag_3[i]==1) {
 					   score=1+score;}
 				background.remove(coin_3[i]);
 				flag_3[i]=0;
 			}
-		}
-		for(int i=0;i<4;i++) {
+		   }
+		   for(int i=0;i<4;i++) {
 			if ( Math.abs(prince.getX()-coin_4[i].getX())<=10 && Math.abs( prince.getY()-coin_4[i].getY())<=50) {
 				if (flag_4[i]==1) {
 					   score=1+score;}
 				background.remove(coin_4[i]);
 				flag_4[i]=0;
 			}
-		}
-		for(int i=0;i<x;i++) {
+		   }
+		   for(int i=0;i<x;i++) {
 			if ( Math.abs(prince.getX()-coin_6[i].getX())<=10 && Math.abs( prince.getY()-coin_6[i].getY())<=50) {
 				if (flag_6[i]==1) {
 					   score=1+score;}
 				background.remove(coin_6[i]);
 				flag_6[i]=0;
 			}
-		}
-		coin_bar.setText(""+score);
-		live_bar.setText(""+live);
-		//Congratulations();
-	}
-	 public void Congratulations(){
-			win.setBounds(250,200,150,100);
-			win .setText("  You Won!");
-			win.setFont(new Font("Ink Free",Font.BOLD,30));
-			win.setForeground(Color.green);
-
-			background.add(win);
-	}
-	public void GameOver(){
-		lose.setBounds(250,200,150,100);
-		lose.setText("  You Lose!");
-		lose.setFont(new Font("Ink Free",Font.BOLD,30));
-		lose.setForeground(Color.red);
-		timer_3.stop();
-		background.add(lose);
-		}
-
-	 Timer timer = new Timer(1000, new ActionListener() {
-		 @Override
-			public void actionPerformed(ActionEvent e) {}
-	 });
+		   }
+		   coin_bar.setText(""+score);
+		   live_bar.setText(""+live);
+		   }		 
+		   public void GameOver(){
+         		lose.setBounds(250,200,150,100);
+	        	lose.setText("  You Lose!");
+	        	lose.setFont(new Font("Ink Free",Font.BOLD,30));
+		   lose.setForeground(Color.red);
+		   timer_3.stop();
+		   background.add(lose);
+		   }
 	 Timer timer_1 = new Timer(70, new ActionListener() {
 			
 			@Override
@@ -308,8 +290,6 @@ ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Pri
 				if (seconds==1) { prince.setIcon(game_22); }
 				if (seconds==0) { prince.setIcon(game_21); }
 				seconds--;
-			//	prince.setBounds(100,400,300,300);
-			//	step=step+20;
 				if(seconds<=-1) {
 					timer_1.stop();
 					seconds=3;
@@ -333,7 +313,7 @@ ImageIcon game_11= new ImageIcon("C:\\Users\\DELL\\eclipse-workspace\\Rescue Pri
 			}
 
 			});
-Timer timer_3 = new Timer(140, new ActionListener() {
+	 Timer timer_3 = new Timer(140, new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -425,7 +405,6 @@ Timer timer_3 = new Timer(140, new ActionListener() {
 			switch(e.getKeyChar()) {
 				case 'a':
 					timer_5.start();
-//					int a=cloud_1.getX();
 				for (int i=1;i<=6;i++) {
 					  cloud[i].setBounds(cloud[i].getX()+step,cloud[i].getY(),100,100);
 					  if (cloud[i].getX()>700 ) {
@@ -686,103 +665,102 @@ Timer timer_3 = new Timer(140, new ActionListener() {
 					}
 					check_collision() ;
 					break;
-case 'd':  timer_1.start();
-//	int a=cloud_1.getX();
-int check_1=0;
-for (int i=2;i<=3;i++) {
-	if ( Math.abs(prince.getX()-ground[i].getX())<=250 ) { 
-		check_1=1;
-	}
-}
-if ( Math.abs(prince.getX()-ground[1].getX())<=80 ) { 
-	check_1=1;
-}
+		             case 'd':  timer_1.start();
+		             int check_1=0;
+		             for (int i=2;i<=3;i++) {
+		             	if ( Math.abs(prince.getX()-ground[i].getX())<=250 ) { 
+ 		              		check_1=1;
+		             	}
+		             }
+		             if ( Math.abs(prince.getX()-ground[1].getX())<=80 ) { 
+		             	check_1=1;
+		             }
 
-if (check_1==0) {
-	prince.setBounds(prince.getX(),230,300,300);
-}
-for (int i=1;i<=6;i++) {
-	  cloud[i].setBounds(cloud[i].getX()-step,cloud[i].getY(),100,100);
-	  if (cloud[i].getX()<-100 ) {
-		  cloud[i].setBounds(600,cloud[i].getY(),100,100);
-	  }
-}
-ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
-if (ground_1.getX()<-3000) {
-		for(int i=0;i<2;i++) {
-			background.add(coin_2[i]);
-			flag_2[i]=1;
-			coin_2[i].setBounds(720-30*i,50,300,300);
-		}
-	}
-	for(int i=0;i<2;i++) {
-		coin_2[i].setBounds(coin_2[i].getX()-step,coin_2[i].getY(),300,300);
-	}
-	if (ground_1.getX()<-3000) {
-		ground_1.setBounds(600,ground_1.getY(),500,500);
-		}
-	ground_2.setBounds(ground_2.getX()-step,ground_2.getY(),500,500);
-	if (ground_2.getX()<-3000) {
-		for(int i=0;i<4;i++) {
-			background.add(coin_4[i]);
-			flag_4[i]=1;
-			coin_4[i].setBounds(830-30*i,80,300,300);
-		}
-	}
-	for(int i=0;i<4;i++) {
- coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
-	}
-	if (ground_2.getX()<-3000) {
-		ground_2.setBounds(600,ground_2.getY(),500,500);
-	}
-	ground_3.setBounds(ground_3.getX()-step,ground_3.getY(),500,500);
-	if (ground_3.getX()<-3000) {
-		for(int i=0;i<3;i++) {
-			background.add(coin_3[i]);
-			flag_3[i]=1;
-			coin_3[i].setBounds(850-30*i,160,300,300);
-		}
-	}
-	for(int i=0;i<3;i++) {
-		coin_3[i].setBounds(coin_3[i].getX()-step,coin_3[i].getY(),300,300);
-	}
-	if (ground_3.getX()<-3000) {
-		ground_3.setBounds(600,ground_3.getY(),500,500);
-	}
+		             if (check_1==0) {
+		             	prince.setBounds(prince.getX(),230,300,300);
+		             }
+		             for (int i=1;i<=6;i++) {
+		             	  cloud[i].setBounds(cloud[i].getX()-step,cloud[i].getY(),100,100);
+		             	  if (cloud[i].getX()<-100 ) {
+		             		  cloud[i].setBounds(600,cloud[i].getY(),100,100);
+		             	  }
+		             }
+		             ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
+		             if (ground_1.getX()<-3000) {
+			             	for(int i=0;i<2;i++) {
+		             			background.add(coin_2[i]);
+		             			flag_2[i]=1;
+		             			coin_2[i].setBounds(720-30*i,50,300,300);
+		             		}
+		             	}
+		             	for(int i=0;i<2;i++) {
+		             		coin_2[i].setBounds(coin_2[i].getX()-step,coin_2[i].getY(),300,300);
+			             }
+			             if (ground_1.getX()<-3000) {
+			             	ground_1.setBounds(600,ground_1.getY(),500,500);
+			             	}
+			             ground_2.setBounds(ground_2.getX()-step,ground_2.getY(),500,500);
+			             if (ground_2.getX()<-3000) {
+			             	for(int i=0;i<4;i++) {
+			             		background.add(coin_4[i]);
+			             		flag_4[i]=1;
+			             		coin_4[i].setBounds(830-30*i,80,300,300);
+			             	}
+			             }
+		             	for(int i=0;i<4;i++) {
+ 		             coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
+		             	}
+		             	if (ground_2.getX()<-3000) {
+		             		ground_2.setBounds(600,ground_2.getY(),500,500);
+		             	}
+		             	ground_3.setBounds(ground_3.getX()-step,ground_3.getY(),500,500);
+		             	if (ground_3.getX()<-3000) {
+		             		for(int i=0;i<3;i++) {
+		             			background.add(coin_3[i]);
+			             		flag_3[i]=1;
+			             		coin_3[i].setBounds(850-30*i,160,300,300);
+			             	}
+			             }
+			             for(int i=0;i<3;i++) {
+			             	coin_3[i].setBounds(coin_3[i].getX()-step,coin_3[i].getY(),300,300);
+		             	}
+		             	if (ground_3.getX()<-3000) {
+			             	ground_3.setBounds(600,ground_3.getY(),500,500);
+			             }
 	
-	heart.setBounds(heart.getX()-step,heart.getY(),300,300);
-	if (heart.getX()<-10000) {
-        background.add(heart);		
-		heart.setBounds(600,heart.getY(),300,300);
-		flag_heart=1;
-	}
-	diamond.setBounds(diamond.getX()-step,diamond.getY(),300,300);
-	if (diamond.getX()<-10000) {
-		background.add(diamond);	
-		diamond.setBounds(600,diamond.getY(),300,300);
-		flag_diamond=1;
-	}
-	for(int i=0;i<x;i++) {
-		coin_6[i].setBounds(coin_6[i].getX()-step,coin_6[i].getY(),300,300);
-		if (coin_6[0].getX()<-200) {
-			int a=random.nextInt(5)+1;
-			for (int k=0;k<x;k++) {
-				background.remove(coin_6[i]);
-			}
-			for(int j=0;j<a;j++) {
-			  coin_6[j].setBounds(600-30*j,300-a*20,300,300);
-			  coin_6[j].setIcon(game_14);
-			  background.add(coin_6[j]);
-			  flag_6[j]=1;
-			}
-			x=a;
-			break;
-		}
-	}
-	check_collision() ;
-					break;
-			}
-		 }
+		             	heart.setBounds(heart.getX()-step,heart.getY(),300,300);
+			             if (heart.getX()<-10000) {
+       		              background.add(heart);		
+			             	heart.setBounds(600,heart.getY(),300,300);
+			             	flag_heart=1;
+		             	}
+		             	diamond.setBounds(diamond.getX()-step,diamond.getY(),300,300);
+		             	if (diamond.getX()<-10000) {
+		             		background.add(diamond);	
+		             		diamond.setBounds(600,diamond.getY(),300,300);
+		             		flag_diamond=1;
+		             	}
+		             	for(int i=0;i<x;i++) {
+		             		coin_6[i].setBounds(coin_6[i].getX()-step,coin_6[i].getY(),300,300);
+			             	if (coin_6[0].getX()<-200) {
+			             		int a=random.nextInt(5)+1;
+			             		for (int k=0;k<x;k++) {
+			             			background.remove(coin_6[i]);
+			             		}
+			             		for(int j=0;j<a;j++) {
+			             		  coin_6[j].setBounds(600-30*j,300-a*20,300,300);
+			             		  coin_6[j].setIcon(game_14);
+			             		  background.add(coin_6[j]);
+			             		  flag_6[j]=1;
+			             		}
+			             		x=a;
+			             		break;
+			             	}
+			             }
+		             	check_collision() ;
+			             				break;
+			             		}
+			             	 }
 		}
 
 		@Override
@@ -822,7 +800,7 @@ if (ground_1.getX()<-3000) {
 					}
 				}
 				for(int i=0;i<4;i++) {
-			 coin_4[i].setBounds(coin_4[i].getX()+step,coin_4[i].getY(),300,300);
+			                coin_4[i].setBounds(coin_4[i].getX()+step,coin_4[i].getY(),300,300);
 				}
 				if (ground_2.getX()>3000) {
 					ground_2.setBounds(0,ground_2.getY(),500,500);
@@ -875,16 +853,16 @@ if (ground_1.getX()<-3000) {
 				break;				
 			case 40: if (prince.getY()<=150) {   
 				timer_1.start();
-			for (int i=0;i<2;i++) {
-				   prince.setBounds(prince.getX(),prince.getY()+2*step,300,300);
+		          	for (int i=0;i<2;i++) {
+				     prince.setBounds(prince.getX(),prince.getY()+2*step,300,300);
 				}			
-	        for (int i=1;i<=6;i++) {
-			     cloud[i].setBounds(cloud[i].getX()-step,cloud[i].getY(),100,100);
+	                         for (int i=1;i<=6;i++) {
+			                cloud[i].setBounds(cloud[i].getX()-step,cloud[i].getY(),100,100);
 				  if (cloud[i].getX()<-100 ) {
 					 cloud[i].setBounds(600,cloud[i].getY(),100,100);
 				  }
-			}
-	        ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
+			        }
+	                ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
 			if (ground_1.getX()<-3000) {
 					for(int i=0;i<2;i++) {
 						background.add(coin_2[i]);
@@ -907,7 +885,7 @@ if (ground_1.getX()<-3000) {
 					}
 				}
 				for(int i=0;i<4;i++) {
-			 coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
+			         coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
 				}
 				if (ground_2.getX()<-3000) {
 					ground_2.setBounds(600,ground_2.getY(),500,500);
@@ -960,7 +938,6 @@ if (ground_1.getX()<-3000) {
 				break;
 			}
 			case 38: timer_1.start();
-			//prince.setBounds(prince.getX(),prince.getY()-step,300,300);
 			for (int i=0;i<2;i++) {
 			   prince.setBounds(prince.getX(),prince.getY()-4*step,300,300);
 			}			
@@ -975,8 +952,6 @@ if (ground_1.getX()<-3000) {
 			if (check==0) {
 				timer_7.start();
 			}
-			//timer_7.start();
-		//	prince.setBounds(prince.getX(),ground[1].getY()-50,500,500);
 			ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
 			if (ground_1.getX()<-3000) {
 					for(int i=0;i<2;i++) {
@@ -1000,7 +975,7 @@ if (ground_1.getX()<-3000) {
 					}
 				}
 				for(int i=0;i<4;i++) {
-			 coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
+			            coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
 				}
 				if (ground_2.getX()<-3000) {
 					ground_2.setBounds(600,ground_2.getY(),500,500);
@@ -1051,103 +1026,102 @@ if (ground_1.getX()<-3000) {
 				}
 				check_collision() ;
 				break;
-case 39:  timer_1.start();
-//int a=cloud_1.getX();
-int check_1=0;
-for (int i=2;i<=3;i++) {
-   if ( Math.abs(prince.getX()-ground[i].getX())<=250 ) { 
-	  check_1=1;
-   }
-}
-if ( Math.abs(prince.getX()-ground[1].getX())<=80 ) { 
-	check_1=1;
-}
-if (check_1==0) {
-prince.setBounds(prince.getX(),230,300,300);
-}
-for (int i=1;i<=6;i++) {
-  cloud[i].setBounds(cloud[i].getX()-step,cloud[i].getY(),100,100);
-  if (cloud[i].getX()<-100 ) {
-	  cloud[i].setBounds(600,cloud[i].getY(),100,100);
-  }
-}
-ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
-if (ground_1.getX()<-3000) {
-	for(int i=0;i<2;i++) {
-		background.add(coin_2[i]);
-		flag_2[i]=1;
-		coin_2[i].setBounds(720-30*i,50,300,300);
-	}
-}
-for(int i=0;i<2;i++) {
-	coin_2[i].setBounds(coin_2[i].getX()-step,coin_2[i].getY(),300,300);
-}
-if (ground_1.getX()<-3000) {
-	ground_1.setBounds(600,ground_1.getY(),500,500);
-	}
-ground_2.setBounds(ground_2.getX()-step,ground_2.getY(),500,500);
-if (ground_2.getX()<-3000) {
-	for(int i=0;i<4;i++) {
-		background.add(coin_4[i]);
-		flag_4[i]=1;
-		coin_4[i].setBounds(830-30*i,80,300,300);
-	}
-}
-for(int i=0;i<4;i++) {
-coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
-}
-if (ground_2.getX()<-3000) {
-	ground_2.setBounds(600,ground_2.getY(),500,500);
-}
-ground_3.setBounds(ground_3.getX()-step,ground_3.getY(),500,500);
-if (ground_3.getX()<-3000) {
-	for(int i=0;i<3;i++) {
-		background.add(coin_3[i]);
-		flag_3[i]=1;
-		coin_3[i].setBounds(850-30*i,160,300,300);
-	}
-}
-for(int i=0;i<3;i++) {
-	coin_3[i].setBounds(coin_3[i].getX()-step,coin_3[i].getY(),300,300);
-}
-if (ground_3.getX()<-3000) {
-	ground_3.setBounds(600,ground_3.getY(),500,500);
-}
+		     case 39:  timer_1.start();
+		     int check_1=0;
+		     for (int i=2;i<=3;i++) {
+		        if ( Math.abs(prince.getX()-ground[i].getX())<=250 ) { 
+		     	  check_1=1;
+		        }
+		     }
+		     if ( Math.abs(prince.getX()-ground[1].getX())<=80 ) { 
+		     	check_1=1;
+		     }
+		     if (check_1==0) {
+		     prince.setBounds(prince.getX(),230,300,300);
+		     }
+		     for (int i=1;i<=6;i++) {
+		       cloud[i].setBounds(cloud[i].getX()-step,cloud[i].getY(),100,100);
+		       if (cloud[i].getX()<-100 ) {
+		     	  cloud[i].setBounds(600,cloud[i].getY(),100,100);
+ 		      }
+		     }
+		     ground_1.setBounds(ground_1.getX()-step,ground_1.getY(),500,500);
+		     if (ground_1.getX()<-3000) {
+		     	for(int i=0;i<2;i++) {
+		     		background.add(coin_2[i]);
+		     		flag_2[i]=1;
+		     		coin_2[i].setBounds(720-30*i,50,300,300);
+		     	}
+		     }
+		     for(int i=0;i<2;i++) {
+		     	coin_2[i].setBounds(coin_2[i].getX()-step,coin_2[i].getY(),300,300);
+		     }
+		     if (ground_1.getX()<-3000) {
+		     	ground_1.setBounds(600,ground_1.getY(),500,500);
+		     	}
+		     ground_2.setBounds(ground_2.getX()-step,ground_2.getY(),500,500);
+		     if (ground_2.getX()<-3000) {
+		     	for(int i=0;i<4;i++) {
+			     	background.add(coin_4[i]);
+				     flag_4[i]=1;
+			     	coin_4[i].setBounds(830-30*i,80,300,300);
+			     }
+		     }
+		     for(int i=0;i<4;i++) {
+		     coin_4[i].setBounds(coin_4[i].getX()-step,coin_4[i].getY(),300,300);
+		     }
+		     if (ground_2.getX()<-3000) {
+		     	ground_2.setBounds(600,ground_2.getY(),500,500);
+		     }
+		     ground_3.setBounds(ground_3.getX()-step,ground_3.getY(),500,500);
+		     if (ground_3.getX()<-3000) {
+		     	for(int i=0;i<3;i++) {
+		     		background.add(coin_3[i]);
+			     	flag_3[i]=1;
+		     		coin_3[i].setBounds(850-30*i,160,300,300);
+		     	}
+		     }
+		     for(int i=0;i<3;i++) {
+		     	coin_3[i].setBounds(coin_3[i].getX()-step,coin_3[i].getY(),300,300);
+		     }
+		     if (ground_3.getX()<-3000) {
+		     	ground_3.setBounds(600,ground_3.getY(),500,500);
+		     }
 
-heart.setBounds(heart.getX()-step,heart.getY(),300,300);
-if (heart.getX()<-10000) {
-    background.add(heart);		
-	heart.setBounds(600,heart.getY(),300,300);
-	flag_heart=1;
-}
-diamond.setBounds(diamond.getX()-step,diamond.getY(),300,300);
-if (diamond.getX()<-10000) {
-	background.add(diamond);	
-	diamond.setBounds(600,diamond.getY(),300,300);
-	flag_diamond=1;
-}
-for(int i=0;i<x;i++) {
-	coin_6[i].setBounds(coin_6[i].getX()-step,coin_6[i].getY(),300,300);
-	if (coin_6[0].getX()<-200) {
-		int a=random.nextInt(5)+1;
-		for (int k=0;k<x;k++) {
-			background.remove(coin_6[i]);
-		}
-		for(int j=0;j<a;j++) {
-		  coin_6[j].setBounds(600-30*j,300-a*20,300,300);
-		  coin_6[j].setIcon(game_14);
-		  background.add(coin_6[j]);
-		  flag_6[j]=1;
-		}
-		x=a;
-		break;
-	}
-}
-check_collision() ;
-				break;
-		}
-	}
-	}
+		     heart.setBounds(heart.getX()-step,heart.getY(),300,300);
+		     if (heart.getX()<-10000) {
+ 		        background.add(heart);		
+		     	heart.setBounds(600,heart.getY(),300,300);
+		     	flag_heart=1;
+		     }
+		     diamond.setBounds(diamond.getX()-step,diamond.getY(),300,300);
+		     if (diamond.getX()<-10000) {
+		     	background.add(diamond);	
+		     	diamond.setBounds(600,diamond.getY(),300,300);
+		     	flag_diamond=1;
+		     }
+		     for(int i=0;i<x;i++) {
+		     	coin_6[i].setBounds(coin_6[i].getX()-step,coin_6[i].getY(),300,300);
+		     	if (coin_6[0].getX()<-200) {
+		     		int a=random.nextInt(5)+1;
+		     		for (int k=0;k<x;k++) {
+				     	background.remove(coin_6[i]);
+			     	}
+			     	for(int j=0;j<a;j++) {
+			     	  coin_6[j].setBounds(600-30*j,300-a*20,300,300);
+			     	  coin_6[j].setIcon(game_14);
+			     	  background.add(coin_6[j]);
+			     	  flag_6[j]=1;
+			     	}
+			     	x=a;
+			     	break;
+			     }
+		     }
+		     check_collision() ;
+		     				break;
+			     	}
+		     	}
+		     	}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
